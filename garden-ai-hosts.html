@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden AI Hosts — WTF Agency AI Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #DA291C;
+  --red-glow: rgba(218, 41, 28, 0.4);
+  --red-soft: rgba(218, 41, 28, 0.12);
+  --red-border: rgba(218, 41, 28, 0.25);
+  --bg: #050505;
+  --bg-2: #0A0A0A;
+  --surface: #111111;
+  --surface-2: #1A1A1A;
+  --surface-3: #222222;
+  --border: rgba(255,255,255,0.06);
+  --border-2: rgba(255,255,255,0.1);
+  --text: #F0F0F0;
+  --text-2: #A0A0A0;
+  --text-3: #666666;
+  --valentina: #C9B8A8;
+  --valentina-bg: rgba(201, 184, 168, 0.1);
+  --valentina-border: rgba(201, 184, 168, 0.25);
+  --diego: #6B8F71;
+  --diego-bg: rgba(107, 143, 113, 0.1);
+  --diego-border: rgba(107, 143, 113, 0.25);
+  --nico: #4A9EF5;
+  --nico-bg: rgba(74, 158, 245, 0.1);
+  --nico-border: rgba(74, 158, 245, 0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Libre Franklin', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  background: rgba(5,5,5,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-logo-box {
+  width: 36px;
+  height: 36px;
+  background: var(--red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-logo-box span {
+  font-size: 10px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.3px;
+}
+.nav-brand {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red);
+  background: var(--red-soft);
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  position: relative;
+  background: url('hero-bg.jpg') center center / cover no-repeat;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5,5,5,1) 0%,
+    rgba(5,5,5,0.95) 15%,
+    rgba(5,5,5,0.75) 40%,
+    rgba(5,5,5,0.4) 65%,
+    rgba(5,5,5,0.2) 85%,
+    rgba(5,5,5,0.3) 100%
+  );
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 80%, rgba(218, 41, 28, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero > .container { position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(17,17,17,0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-2);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  width: fit-content;
+}
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--red-glow); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px transparent; }
+}
+.hero h1 {
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.hero h1 .red { color: var(--red); }
+.hero h1 .outline {
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
+.hero-sub {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-2);
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 48px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #C4241A; transform: translateY(-1px); box-shadow: 0 8px 30px var(--red-glow); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border-2);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--text-3); background: var(--surface-2); }
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.hero-stat h3 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--red);
+}
+.hero-stat p {
+  font-size: 13px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ── SECTIONS ── */
+section { padding: 120px 0; }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--text-2);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+
+/* ── VISION ── */
+.vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.vision-card {
+  background: rgba(17,17,17,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 40px;
+  transition: border-color 0.3s;
+}
+.vision-card:hover { border-color: var(--red-border); }
+.vision-card.wide { grid-column: span 2; }
+.vision-card .icon {
+  width: 48px;
+  height: 48px;
+  background: var(--red-soft);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.vision-card .icon svg { width: 24px; height: 24px; color: var(--red); }
+.vision-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.vision-card p {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* ── HOSTS ── */
+.hosts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.host-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s;
+  position: relative;
+}
+.host-card:hover { transform: translateY(-4px); }
+.host-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+.host-card.valentina::before { background: var(--valentina); }
+.host-card.diego::before { background: var(--diego); }
+.host-card.nico::before { background: var(--nico); }
+.host-card:hover.valentina { border-color: var(--valentina-border); }
+.host-card:hover.diego { border-color: var(--diego-border); }
+.host-card:hover.nico { border-color: var(--nico-border); }
+
+.host-avatar {
+  width: 100%;
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+}
+.host-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.host-avatar .role-icon {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.host-card.valentina .role-icon { background: rgba(201,184,168,0.85); }
+.host-card.diego .role-icon { background: rgba(107,143,113,0.85); }
+.host-card.nico .role-icon { background: rgba(74,158,245,0.85); }
+.role-icon svg { width: 22px; height: 22px; color: white; }
+
+.host-info { padding: 32px; }
+.host-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.host-card.valentina .host-tag { color: var(--valentina); }
+.host-card.diego .host-tag { color: var(--diego); }
+.host-card.nico .host-tag { color: var(--nico); }
+.host-info h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.host-info .age {
+  font-size: 14px;
+  color: var(--text-3);
+  margin-bottom: 16px;
+}
+.host-info .desc {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.host-question {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  line-height: 1.4;
+}
+.host-card.valentina .host-question { background: var(--valentina-bg); color: var(--valentina); }
+.host-card.diego .host-question { background: var(--diego-bg); color: var(--diego); }
+.host-card.nico .host-question { background: var(--nico-bg); color: var(--nico); }
+
+.host-segments h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.segment-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.segment-pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+}
+.host-brands {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.host-brands h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
+.brand-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.brand-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--red-soft);
+  color: var(--red);
+}
+.reel-wrapper { display: flex; flex-direction: column; }
+.reel-bio {
+  padding: 20px 4px 0;
+}
+.reel-bio h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.reel-bio p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* ── VIDEO REELS ── */
+.reels-section { background: var(--bg-2); }
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.reel-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: all 0.3s;
+}
+.reel-item:hover { border-color: var(--border-2); transform: translateY(-3px); }
+.reel-item video {
+  width: 100%;
+  display: block;
+}
+.reel-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.reel-card-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+.reel-card-exclusive {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+.reel-item .reel-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.reel-label .reel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.reel-label .reel-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.reel-label .reel-role {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-left: auto;
+}
+
+/* ── CHARACTER SHEETS ── */
+.sheets-section { background: var(--bg); }
+.sheets-gallery { display: flex; flex-direction: column; gap: 32px; }
+.sheet-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.4s;
+}
+.sheet-item:hover { border-color: var(--border-2); transform: scale(1.005); }
+.sheet-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.sheet-item .sheet-label {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.sheet-item.valentina .sheet-label { background: rgba(201,184,168,0.2); color: var(--valentina); border: 1px solid var(--valentina-border); }
+.sheet-item.diego .sheet-label { background: rgba(107,143,113,0.2); color: var(--diego); border: 1px solid var(--diego-border); }
+.sheet-item.nico .sheet-label { background: rgba(74,158,245,0.2); color: var(--nico); border: 1px solid var(--nico-border); }
+
+/* ── FORMATS ── */
+.formats-section {
+  background: url('formats-bg.jpg') center center / cover no-repeat;
+  position: relative;
+}
+.formats-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,10,0.88) 0%,
+    rgba(10,10,10,0.7) 30%,
+    rgba(10,10,10,0.65) 60%,
+    rgba(10,10,10,0.85) 100%
+  );
+  pointer-events: none;
+}
+.formats-section > .container { position: relative; z-index: 2; }
+.formats-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.format-card {
+  background: rgba(17,17,17,0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+.format-card:hover { border-color: var(--red-border); transform: translateY(-2px); }
+.format-card.span-2 { grid-column: span 2; }
+.format-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.format-card h3 .badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.badge-v { background: var(--valentina-bg); color: var(--valentina); }
+.badge-d { background: var(--diego-bg); color: var(--diego); }
+.badge-n { background: var(--nico-bg); color: var(--nico); }
+.badge-all { background: var(--red-soft); color: var(--red); }
+.format-card p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.format-card .example {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-3);
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid var(--border-2);
+}
+
+/* ── COLLAB ── */
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.collab-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.collab-card:hover { border-color: var(--red-border); transform: translateY(-3px); }
+.collab-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.collab-card-body { padding: 28px; }
+.collab-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--red);
+}
+.collab-card p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.calendar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  overflow-x: auto;
+}
+.calendar h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.cal-day {
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 130px;
+}
+.cal-day .day-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
+.cal-day .day-host {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.cal-day .day-format {
+  font-size: 11px;
+  color: var(--text-3);
+}
+.cal-day.v { border-left: 3px solid var(--valentina); }
+.cal-day.d { border-left: 3px solid var(--diego); }
+.cal-day.n { border-left: 3px solid var(--nico); }
+.cal-day.all { border-left: 3px solid var(--red); }
+.cal-day.v .day-host { color: var(--valentina); }
+.cal-day.d .day-host { color: var(--diego); }
+.cal-day.n .day-host { color: var(--nico); }
+.cal-day.all .day-host { color: var(--red); }
+
+/* ── COVERAGE ── */
+.coverage-section {
+  background: url('coverage-bg.jpg') center center / cover no-repeat;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.coverage-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(17,17,17,0.88) 0%,
+    rgba(17,17,17,0.72) 40%,
+    rgba(17,17,17,0.72) 60%,
+    rgba(17,17,17,0.9) 100%
+  );
+  pointer-events: none;
+}
+.coverage-section > .container { position: relative; z-index: 2; }
+.coverage-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.cov-stat h3 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--red) 0%, #FF6B5A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cov-stat p {
+  font-size: 14px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.brand-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.brand-cloud-chip {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+  transition: all 0.2s;
+}
+.brand-cloud-chip:hover { border-color: var(--red-border); color: var(--text); }
+.brand-cloud-chip.featured { border-color: var(--red-border); color: var(--red); background: var(--red-soft); }
+
+/* ── POWERED BY ── */
+.powered {
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+.powered::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(218, 41, 28, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.powered-label {
+  font-size: 12px;
+  color: var(--text-3);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.powered h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.powered h2 .red { color: var(--red); }
+.powered-sub {
+  font-size: 17px;
+  color: var(--text-2);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.powered-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  opacity: 0.4;
+}
+.powered-logo-garden {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.powered-logo-garden .box {
+  width: 40px;
+  height: 40px;
+  background: var(--red);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+}
+.powered-logo-garden span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.powered-x {
+  font-size: 16px;
+  color: var(--text-3);
+  font-weight: 300;
+}
+.powered-logo-wtf {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 2px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hosts-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .formats-bento { grid-template-columns: repeat(2, 1fr); }
+  .format-card.span-2 { grid-column: span 1; }
+  .collab-grid { grid-template-columns: 1fr; }
+  .cal-grid { grid-template-columns: repeat(4, 1fr); }
+  .coverage-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  section { padding: 80px 0; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero-stats { flex-direction: column; gap: 24px; }
+  .vision-grid { grid-template-columns: 1fr; }
+  .vision-card.wide { grid-column: span 1; }
+  .formats-bento { grid-template-columns: 1fr; }
+  .cal-grid { grid-template-columns: repeat(2, 1fr); }
+  .coverage-stats { grid-template-columns: 1fr; gap: 24px; }
+  .hero-ctas { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .powered-logos { flex-direction: column; gap: 20px; }
+}
+
+/* ── ANIMATIONS ── */
+@media (prefers-reduced-motion: no-preference) {
+  .host-card, .format-card, .collab-card, .vision-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hosts-grid .host-card:nth-child(1) { animation-delay: 0.1s; }
+  .hosts-grid .host-card:nth-child(2) { animation-delay: 0.2s; }
+  .hosts-grid .host-card:nth-child(3) { animation-delay: 0.3s; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-box"><span>Garden</span></div>
+      <span class="nav-brand">AI Hosts</span>
+    </div>
+    <span class="nav-tag">Proyecto 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Primer proyecto de su tipo en Latinoamérica
+    </div>
+    <h1 style="text-transform: uppercase;">
+      Los primeros<br>
+      <span class="red">expertos AI</span><br>
+      <span class="outline">del motor</span><br>
+      de Paraguay.
+    </h1>
+    <p class="hero-sub">
+      Tres hosts potenciados por inteligencia artificial que cubren cada ángulo del mundo automotriz. Contenido experto, escalable y siempre on-brand para Grupo Garden.
+    </p>
+    <div class="hero-ctas">
+      <a href="#hosts" class="btn-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l-4 4-4-4"/></svg>
+        Conocer los hosts
+      </a>
+      <a href="#coverage" class="btn-secondary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/></svg>
+        Ver cobertura
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <h3>3</h3>
+        <p>AI Hosts</p>
+      </div>
+      <div class="hero-stat">
+        <h3>64</h3>
+        <p>Modelos cubiertos</p>
+      </div>
+      <div class="hero-stat">
+        <h3>11</h3>
+        <p>Marcas</p>
+      </div>
+      <div class="hero-stat">
+        <h3>3/7</h3>
+        <p>Contenido semanal</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision-section" style="position: relative; background: url('vision-bg.jpg') center center / cover no-repeat;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,0.6) 100%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <p class="section-label">La Visión</p>
+    <h2 class="section-title">Contenido automotriz potenciado por AI</h2>
+    <p class="section-desc">Un equipo de hosts virtuales expertos que producen contenido de marca consistente, escalable y siempre alineado con la identidad de Garden.</p>
+    <div class="vision-grid">
+      <div class="vision-card wide">
+        <div class="icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3>AI Engine de WTF Agency</h3>
+        <p>Motor de inteligencia artificial propietario que genera personajes consistentes, con personalidad definida, conocimiento técnico real y capacidad de producir contenido en múltiples formatos. Cada host mantiene su voz, estilo visual y expertise a lo largo del tiempo.</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Escalabilidad total</h3>
+        <p>Producción de contenido diario sin límites de agenda, locación o disponibilidad. Los tres hosts pueden cubrir lanzamientos, comparativas y reviews simultáneamente.</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Siempre on-brand</h3>
+        <p>Cada pieza de contenido respeta la identidad visual, tono y valores de Garden. Sin desvíos, sin riesgos reputacionales, sin inconsistencias.</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Personalidades reales</h3>
+        <p>No son avatares genéricos. Cada host tiene backstory, opiniones, estilo propio y expertise definido. Generan conexión real con la audiencia.</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Multi-formato</h3>
+        <p>Reviews, comparativas, tips rápidos, deep dives, rutas, análisis de costos. Cada host domina formatos específicos optimizados para cada plataforma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section id="hosts" style="background: var(--bg-2);">
+  <div class="container">
+    <p class="section-label">Los Hosts</p>
+    <h2 class="section-title">Tres expertos, tres ángulos, cobertura total</h2>
+    <p class="section-desc">Cada host evalúa los vehículos desde una perspectiva única. Juntos cubren todo el catálogo de Garden con profundidad y credibilidad.</p>
+    <div class="hosts-grid">
+
+      <!-- VALENTINA -->
+      <div class="host-card valentina">
+        <div class="host-avatar">
+          <img src="valentina-portrait.jpg" alt="Valentina Franco">
+          <div class="role-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          </div>
+        </div>
+        <div class="host-info">
+          <p class="host-tag">Lifestyle &amp; Diseño</p>
+          <h3>Valentina Franco</h3>
+          <p class="age">31 años — Periodista automotriz</p>
+          <p class="desc">Evalúa cómo se <strong>vive</strong> un auto. Interiores, confort, diseño, ergonomía, vida urbana, familia. La experta que te dice si el interior vale lo que cuesta.</p>
+          <div class="host-question">"No es solo un auto, es donde vas a vivir 2 horas por día. Importa cómo se siente."</div>
+          <div class="host-segments">
+            <h4>Segmentos</h4>
+            <div class="segment-pills">
+              <span class="segment-pill">Por Dentro</span>
+              <span class="segment-pill">Diseño en 60s</span>
+              <span class="segment-pill">Vivirlo</span>
+              <span class="segment-pill">Valentina Elige</span>
+            </div>
+          </div>
+          <div class="host-brands">
+            <h4>Marcas lead</h4>
+            <div class="brand-tags">
+              <span class="brand-tag">MINI</span>
+              <span class="brand-tag">Mazda</span>
+              <span class="brand-tag">Volvo</span>
+              <span class="brand-tag">Kia urbanos</span>
+              <span class="brand-tag">FIAT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIEGO -->
+      <div class="host-card diego">
+        <div class="host-avatar">
+          <img src="diego-portrait.jpg" alt="Diego Ruiz">
+          <div class="role-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+        </div>
+        <div class="host-info">
+          <p class="host-tag">Performance &amp; Aventura</p>
+          <h3>Diego Ruiz</h3>
+          <p class="age">38 años — Ex instructor de manejo</p>
+          <p class="desc">Evalúa cómo <strong>rinde</strong> un auto. Manejo real en rutas paraguayas, off-road, pickups con carga, consumo medido. El que lleva cada auto al límite.</p>
+          <div class="host-question">"A un auto no lo conocés en el showroom. Lo conocés en la ruta, en el barro, con carga."</div>
+          <div class="host-segments">
+            <h4>Segmentos</h4>
+            <div class="segment-pills">
+              <span class="segment-pill">A Fondo</span>
+              <span class="segment-pill">Versus</span>
+              <span class="segment-pill">Ruta</span>
+              <span class="segment-pill">Dato Real</span>
+            </div>
+          </div>
+          <div class="host-brands">
+            <h4>Marcas lead</h4>
+            <div class="brand-tags">
+              <span class="brand-tag">Jeep</span>
+              <span class="brand-tag">RAM</span>
+              <span class="brand-tag">Nissan</span>
+              <span class="brand-tag">Chevrolet</span>
+              <span class="brand-tag">Kia SUVs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NICO -->
+      <div class="host-card nico">
+        <div class="host-avatar">
+          <img src="nico-portrait.jpg" alt="Nico Ferreira">
+          <div class="role-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+          </div>
+        </div>
+        <div class="host-info">
+          <p class="host-tag">Tecnología &amp; Movilidad Eléctrica</p>
+          <h3>Nico Ferreira</h3>
+          <p class="age">28 años — Ingeniero electromecánico</p>
+          <p class="desc">Traduce la <strong>tecnología</strong> en decisiones de compra. EVs, ADAS, connectivity, costo real eléctrico vs combustión. El puente entre specs y vida real.</p>
+          <div class="host-question">"El futuro de la movilidad no es ciencia ficción. Ya está en el showroom."</div>
+          <div class="host-segments">
+            <h4>Segmentos</h4>
+            <div class="segment-pills">
+              <span class="segment-pill">Futuro Ahora</span>
+              <span class="segment-pill">Tech Check</span>
+              <span class="segment-pill">Los Números</span>
+              <span class="segment-pill">Feature Oculto</span>
+            </div>
+          </div>
+          <div class="host-brands">
+            <h4>Marcas lead</h4>
+            <div class="brand-tags">
+              <span class="brand-tag">Volvo EV</span>
+              <span class="brand-tag">Kia EV</span>
+              <span class="brand-tag">MINI Aceman</span>
+              <span class="brand-tag">Chery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIDEO REELS — debajo de los host cards -->
+    <div style="margin-top: 60px;">
+      <p class="section-label">En Movimiento</p>
+      <h2 class="section-title" style="margin-bottom: 12px;">Los hosts cobran vida</h2>
+      <p class="section-desc">Personajes AI con presencia real. Video generado con el engine de WTF Agency.</p>
+      <div class="reels-grid">
+        <div class="reel-wrapper">
+          <div class="reel-card-header">
+            <img class="reel-card-logo" src="brands/Garden/logo/logo.png" alt="Garden">
+            <span class="reel-card-exclusive">AI Content Creator Exclusive</span>
+          </div>
+          <div class="reel-item">
+            <video autoplay loop muted playsinline src="video-host-1.mp4"></video>
+            <div class="reel-label">
+              <span class="reel-dot" style="background: var(--nico);"></span>
+              <span class="reel-name">Nico Ferreira</span>
+              <span class="reel-role">AI Host 03</span>
+            </div>
+          </div>
+          <div class="reel-bio">
+            <h4 style="color: var(--nico);">Nico Ferreira</h4>
+            <p>Curioso, entusiasta y obsesivo con los detalles. Se emociona genuinamente con la tecnología y lo contagia. Energía de amigo nerd que te explica todo sin hacerte sentir ignorante. Transparente con los números, escéptico con el marketing, fanático de los datos reales.</p>
+          </div>
+        </div>
+        <div class="reel-wrapper">
+          <div class="reel-card-header">
+            <img class="reel-card-logo" src="brands/Garden/logo/logo.png" alt="Garden">
+            <span class="reel-card-exclusive">AI Content Creator Exclusive</span>
+          </div>
+          <div class="reel-item">
+            <video autoplay loop muted playsinline src="video-host-2.mp4"></video>
+            <div class="reel-label">
+              <span class="reel-dot" style="background: var(--diego);"></span>
+              <span class="reel-name">Diego Ruiz</span>
+              <span class="reel-role">AI Host 02</span>
+            </div>
+          </div>
+          <div class="reel-bio">
+            <h4 style="color: var(--diego);">Diego Ruiz</h4>
+            <p>Intenso, apasionado y brutalmente honesto. Habla desde la experiencia real — si un auto no aguanta el Chaco, lo dice. Energía de hermano mayor que sabe de mecánica. Usa jerga técnica pero la explica con ejemplos del día a día. Competitivo, leal a los datos, nunca al marketing.</p>
+          </div>
+        </div>
+        <div class="reel-wrapper">
+          <div class="reel-card-header">
+            <img class="reel-card-logo" src="brands/Garden/logo/logo.png" alt="Garden">
+            <span class="reel-card-exclusive">AI Content Creator Exclusive</span>
+          </div>
+          <div class="reel-item">
+            <video autoplay loop muted playsinline src="video-host-3.mp4"></video>
+            <div class="reel-label">
+              <span class="reel-dot" style="background: var(--valentina);"></span>
+              <span class="reel-name">Valentina Franco</span>
+              <span class="reel-role">AI Host 01</span>
+            </div>
+          </div>
+          <div class="reel-bio">
+            <h4 style="color: var(--valentina);">Valentina Franco</h4>
+            <p>Sofisticada sin ser fría. Cálida, directa y con opiniones claras. Mezcla naturalidad con conocimiento técnico — como tu amiga que sabe de diseño y no tiene miedo de decirte que el interior de tu auto es feo. Tono cercano pero profesional, humor sutil, nunca condescendiente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHARACTER SHEETS -->
+<section class="sheets-section">
+  <div class="container">
+    <p class="section-label">Character Sheets</p>
+    <h2 class="section-title">Diseño visual de cada host</h2>
+    <p class="section-desc">Identidad visual completa: poses, expresiones, paleta de color y vestuario definido para cada personaje.</p>
+    <div class="sheets-gallery">
+      <div class="sheet-item valentina">
+        <span class="sheet-label">AI Host 01</span>
+        <img src="valentina-sheet.jpg" alt="Character Sheet — Valentina Franco" loading="lazy">
+      </div>
+      <div class="sheet-item diego">
+        <span class="sheet-label">AI Host 02</span>
+        <img src="diego-sheet.jpg" alt="Character Sheet — Diego Ruiz" loading="lazy">
+      </div>
+      <div class="sheet-item nico">
+        <span class="sheet-label">AI Host 03</span>
+        <img src="nico-sheet.jpg" alt="Character Sheet — Nico Ferreira" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="formats-section">
+  <div class="container">
+    <p class="section-label" style="margin-bottom: 32px;">Contenido</p>
+    <h2 class="section-title" style="max-width: none; white-space: nowrap; margin-bottom: 8px;">Formatos diseñados para cada plataforma</h2>
+    <p class="section-desc" style="max-width: none; white-space: nowrap; margin-bottom: 20px;">Cada host tiene sus formatos signature, optimizados para engagement y watch time.</p>
+    <div class="formats-bento">
+      <div class="format-card span-2">
+        <h3>Triple Test <span class="badge badge-all">Los 3</span></h3>
+        <p>Un auto nuevo, tres perspectivas. Valentina evalúa diseño y confort, Diego el manejo y rendimiento, Nico la tecnología. Cada uno tiene 30 segundos. Al final, puntaje conjunto.</p>
+        <p class="example">"Triple Test: Kia EV5 — el eléctrico que Garden trae a Paraguay"</p>
+      </div>
+      <div class="format-card">
+        <h3>Por Dentro <span class="badge badge-v">Val</span></h3>
+        <p>Review inmersivo de interiores. Materiales, ergonomía, espacio real. Se sienta, toca, abre, guarda cosas.</p>
+        <p class="example">"Por Dentro: Mazda CX60 — diseño japonés premium"</p>
+      </div>
+      <div class="format-card">
+        <h3>A Fondo <span class="badge badge-d">Diego</span></h3>
+        <p>Test drive completo en condiciones reales. Rutas paraguayas, ripio, carga. Números medidos, no del folleto.</p>
+        <p class="example">"A Fondo: RAM 1500 — 500km al Chaco"</p>
+      </div>
+      <div class="format-card">
+        <h3>Futuro Ahora <span class="badge badge-n">Nico</span></h3>
+        <p>Deep dive en vehículos eléctricos. Autonomía real, carga, costo por kilómetro en Paraguay.</p>
+        <p class="example">"Futuro Ahora: Volvo EX30 — eléctrico accesible"</p>
+      </div>
+      <div class="format-card">
+        <h3>Versus <span class="badge badge-d">Diego</span></h3>
+        <p>Comparativa directa entre dos modelos del mismo segmento. Mediciones reales, veredicto honesto.</p>
+        <p class="example">"Versus: Frontier vs S10 — la mejor pickup"</p>
+      </div>
+      <div class="format-card">
+        <h3>Los Números <span class="badge badge-n">Nico</span></h3>
+        <p>Análisis de costo-beneficio con datos duros. Compra + energía + mantenimiento a 5 años.</p>
+        <p class="example">"Los Números: EV5 vs Sportage — cuánto gastás"</p>
+      </div>
+      <div class="format-card">
+        <h3>El Debate <span class="badge badge-all">Los 3</span></h3>
+        <p>Tema polémico, tres opiniones. Interacción real, argumentos cruzados, la audiencia vota.</p>
+        <p class="example">"El Debate: ¿Eléctrico en Paraguay, sí o no?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAB & CALENDAR -->
+<section>
+  <div class="container">
+    <p class="section-label">Dinámica</p>
+    <h2 class="section-title">Un equipo, no tres individuos</h2>
+    <p class="section-desc">Los hosts se cruzan, debaten y colaboran. Cada combinación genera un tipo de contenido distinto.</p>
+    <div class="collab-grid">
+      <div class="collab-card">
+        <img src="collab-val-diego.jpg" alt="Valentina + Diego">
+        <div class="collab-card-body">
+          <h3>Valentina + Diego</h3>
+          <p>Cuando sale un SUV importante: ella evalúa la vida adentro, él prueba el manejo. El balance perfecto entre confort y rendimiento.</p>
+        </div>
+      </div>
+      <div class="collab-card">
+        <img src="collab-diego-nico.jpg" alt="Diego + Nico">
+        <div class="collab-card-body">
+          <h3>Diego + Nico</h3>
+          <p>Pickups eléctricas, tech off-road, ADAS en condiciones extremas. Donde la potencia se encuentra con la tecnología.</p>
+        </div>
+      </div>
+      <div class="collab-card">
+        <img src="collab-val-nico.jpg" alt="Valentina + Nico">
+        <div class="collab-card-body">
+          <h3>Valentina + Nico</h3>
+          <p>Volvo y MINI: donde diseño escandinavo y tecnología de punta se fusionan. Eléctricos con estilo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="calendar">
+      <h3>Content Calendar Semanal</h3>
+      <p style="font-size: 13px; color: var(--text-3); margin-bottom: 24px;">Dos semanas en rotación: la primera con cada host en solitario, la segunda con las duplas colaborativas.</p>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 12px;">Semana A — Individual</p>
+          <div class="cal-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="cal-day v">
+              <p class="day-name">Martes</p>
+              <p class="day-host">Valentina</p>
+              <p class="day-format">Por Dentro / Diseño en 60s</p>
+            </div>
+            <div class="cal-day d">
+              <p class="day-name">Jueves</p>
+              <p class="day-host">Diego</p>
+              <p class="day-format">A Fondo / Ruta / Versus</p>
+            </div>
+            <div class="cal-day n">
+              <p class="day-name">Sábado</p>
+              <p class="day-host">Nico</p>
+              <p class="day-format">Futuro Ahora / Los Números</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 12px;">Semana B — Colaborativa</p>
+          <div class="cal-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="cal-day v" style="border-left-color: var(--diego);">
+              <p class="day-name">Martes</p>
+              <p class="day-host" style="color: var(--text);">Val + Diego</p>
+              <p class="day-format">Crossover / Comparativa</p>
+            </div>
+            <div class="cal-day d" style="border-left-color: var(--nico);">
+              <p class="day-name">Jueves</p>
+              <p class="day-host" style="color: var(--text);">Diego + Nico</p>
+              <p class="day-format">Tech Off-Road / ADAS</p>
+            </div>
+            <div class="cal-day all">
+              <p class="day-name">Sábado</p>
+              <p class="day-host">Los 3</p>
+              <p class="day-format">Triple Test / El Debate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="coverage-section">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Cobertura</p>
+    <h2 class="section-title" style="text-align:center; margin: 0 auto 60px;">Todo el catálogo Garden, cubierto</h2>
+    <div class="coverage-stats">
+      <div class="cov-stat">
+        <h3>64</h3>
+        <p>Modelos</p>
+      </div>
+      <div class="cov-stat">
+        <h3>11</h3>
+        <p>Marcas</p>
+      </div>
+      <div class="cov-stat">
+        <h3>4</h3>
+        <p>Segmentos</p>
+      </div>
+      <div class="cov-stat">
+        <h3>150</h3>
+        <p>Contenidos/año</p>
+      </div>
+    </div>
+    <div class="brand-cloud">
+      <span class="brand-cloud-chip featured">KIA</span>
+      <span class="brand-cloud-chip">Nissan</span>
+      <span class="brand-cloud-chip">FIAT</span>
+      <span class="brand-cloud-chip">Chevrolet</span>
+      <span class="brand-cloud-chip">Chery</span>
+      <span class="brand-cloud-chip featured">Volvo</span>
+      <span class="brand-cloud-chip">Mazda</span>
+      <span class="brand-cloud-chip">MINI</span>
+      <span class="brand-cloud-chip">Jeep</span>
+      <span class="brand-cloud-chip">RAM</span>
+      <span class="brand-cloud-chip">Abarth</span>
+    </div>
+  </div>
+</section>
+
+<!-- POWERED BY -->
+<section class="powered">
+  <div class="container">
+    <p class="powered-label">Powered by</p>
+    <h2>WTF Agency<br><span class="red">AI Engine</span></h2>
+    <p class="powered-sub">Tecnología propietaria de generación de contenido automotriz con inteligencia artificial. Personajes consistentes, contenido escalable, siempre on-brand.</p>
+    <a href="#" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar propuesta completa
+    </a>
+    <div class="powered-logos">
+      <div class="powered-logo-garden">
+        <div class="box">Garden</div>
+        <span>Grupo Garden</span>
+      </div>
+      <span class="powered-x">&times;</span>
+      <span class="powered-logo-wtf">WTF AGENCY</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>Garden AI Hosts &mdash; Propuesta confidencial &mdash; WTF Agency 2026<br>
+    Documento generado con AI Engine v1.0</p>
+  </div>
+</footer>
+
+</body>
+</html>

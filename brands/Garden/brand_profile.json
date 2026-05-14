@@ -1,0 +1,345 @@
+{
+  "brand_info": {
+    "name": "Grupo Garden",
+    "legal_name": "Garden Automotores S.A.",
+    "tagline": "Proveer opciones de acceso a la movilidad deseada",
+    "category": "Automotive / Mobility / Multi-brand Distributor",
+    "positioning": "Grupo automotriz líder en Paraguay con +40 años, representante exclusivo de +12 marcas internacionales. Controla ~35% del mercado de importación de vehículos livianos.",
+    "founded": 1985,
+    "origin_city": "Ciudad del Este, Paraguay",
+    "hq": "Asunción, Paraguay",
+    "website": "https://www.garden.com.py",
+    "app": "Garden Automotores (Google Play)",
+    "milestones": [
+      "1985 — Apertura en Ciudad del Este como vendedor multimarca",
+      "1998 — Adquisición de Tema Automotores S.A. (concesionario Chevrolet)",
+      "2002 — Representante exclusivo de KIA Motors en Paraguay",
+      "2021 — Apertura del mega taller postventa en Mariano Roque Alonso",
+      "2023 — Distribución oficial de FIAT en Paraguay",
+      "2024 — Representante exclusivo de Volvo Cars en Paraguay"
+    ]
+  },
+  "business": {
+    "model": "multi-brand automotive distributor",
+    "description": "Grupo automotriz paraguayo que representa +12 marcas internacionales de vehículos. Vende autos 0km y usados, motos, vehículos comerciales, y ofrece servicios de postventa, repuestos, seguros y financiamiento. Opera una red de sucursales y talleres a nivel nacional, incluyendo el mega taller más grande de Paraguay y la región.",
+    "value_prop": "Acceso a la movilidad deseada: variedad de marcas, financiamiento flexible y servicio postventa integral bajo un mismo grupo.",
+    "target_market": "B2C y B2B en Paraguay — individuos y empresas que buscan vehículos nuevos/usados con financiamiento y servicio postventa confiable. Segmentos desde entry-level hasta premium.",
+    "revenue_streams": [
+      "Venta de vehículos 0km (multimarca)",
+      "Venta de vehículos usados (Carden)",
+      "Servicio postventa y talleres",
+      "Venta de repuestos y accesorios",
+      "Seguros vehiculares",
+      "Financiamiento y planes de pago",
+      "Leasing y renting vehicular"
+    ],
+    "website": "https://www.garden.com.py",
+    "market_share": "~35% importación vehículos livianos Paraguay (datos CADAM)",
+    "employees": "1300+"
+  },
+  "brands_represented": [
+    {
+      "name": "KIA",
+      "since": 2002,
+      "type": "autos",
+      "note": "Marca más vendida de Paraguay por 14 años consecutivos",
+      "models": ["Picanto", "Soluto", "Sonet", "Seltos", "Carens", "Sportage", "Sorento", "Carnival", "EV5", "EV9", "K2700"]
+    },
+    {
+      "name": "Nissan",
+      "type": "autos",
+      "models": ["Versa", "Sentra", "Kait", "Nicks", "Qashqai", "Xtrail", "Pathfinder", "Patrol", "Frontier"]
+    },
+    {
+      "name": "FIAT",
+      "since": 2023,
+      "type": "autos",
+      "models": ["Mobi", "Argo", "Pulse", "Fastback", "Strada", "Toro", "Fiorino"]
+    },
+    {
+      "name": "Chevrolet",
+      "since": 1998,
+      "type": "autos",
+      "models": ["Onix", "Onix Sedán", "Tracker", "Montana", "S10", "Silverado", "Trailblazer"]
+    },
+    {
+      "name": "Chery",
+      "type": "autos",
+      "models": ["T2", "T4", "T7", "M7", "T8", "Himla"]
+    },
+    {
+      "name": "Volvo Cars",
+      "since": 2024,
+      "type": "autos",
+      "models": ["EX30", "EX40", "EC40", "XC60", "XC90", "EX90"]
+    },
+    {
+      "name": "Mazda",
+      "type": "autos",
+      "models": ["CX30", "CX5", "CX60", "CX90", "BT50"]
+    },
+    {
+      "name": "MINI",
+      "type": "autos",
+      "models": ["Cooper", "Countryman", "Cabrio", "Aceman"]
+    },
+    {
+      "name": "Jeep",
+      "type": "autos",
+      "models": ["Renegade", "Compass", "Commander", "Wrangler"]
+    },
+    {
+      "name": "RAM",
+      "type": "autos",
+      "models": ["Rampage", "Dakota", "1500"]
+    },
+    {
+      "name": "Abarth",
+      "type": "autos",
+      "models": ["Pulse", "Fastback"]
+    },
+    { "name": "Dodge", "type": "autos" },
+    { "name": "Chrysler", "type": "autos" },
+    { "name": "SRT", "type": "autos" },
+    { "name": "Mopar", "type": "repuestos" },
+    { "name": "BMW Motorrad", "type": "motos", "models": ["310 Gs", "310 R", "F800 Gs", "F900 Gs", "R1300 Gs", "R1300 Adv", "R12 NineT", "S1000 RR", "S1000 XR", "CE 02", "CE 04", "R12 Aluminio"] },
+    { "name": "Icaur", "type": "motos", "models": ["V23", "V27", "03T"] },
+    { "name": "Husqvarna Motos", "type": "motos" },
+    { "name": "Saito-Changan", "type": "comerciales", "note": "Vehículos comerciales" }
+  ],
+  "vehicle_catalog_summary": {
+    "total_auto_models": 64,
+    "total_auto_brands": 11,
+    "total_moto_models": 15,
+    "segments": {
+      "sedanes_hatchbacks": {
+        "count": 15,
+        "models": ["Picanto (Kia)", "Soluto (Kia)", "Versa (Nissan)", "Sentra (Nissan)", "Mobi (FIAT)", "Argo (FIAT)", "Pulse (FIAT)", "Fastback (FIAT)", "Onix (Chevrolet)", "Onix Sedán (Chevrolet)", "Cooper (MINI)", "Cabrio (MINI)", "Aceman (MINI)", "Pulse (Abarth)", "Fastback (Abarth)"]
+      },
+      "suvs_crossovers": {
+        "count": 31,
+        "models": ["Sonet (Kia)", "Seltos (Kia)", "Carens (Kia)", "Sportage (Kia)", "Sorento (Kia)", "Carnival (Kia)", "Kait (Nissan)", "Nicks (Nissan)", "Qashqai (Nissan)", "Xtrail (Nissan)", "Pathfinder (Nissan)", "Patrol (Nissan)", "Tracker (Chevrolet)", "Trailblazer (Chevrolet)", "T2 (Chery)", "T4 (Chery)", "T7 (Chery)", "M7 (Chery)", "T8 (Chery)", "Himla (Chery)", "XC60 (Volvo)", "XC90 (Volvo)", "CX30 (Mazda)", "CX5 (Mazda)", "CX60 (Mazda)", "CX90 (Mazda)", "Countryman (MINI)", "Renegade (Jeep)", "Compass (Jeep)", "Commander (Jeep)", "Wrangler (Jeep)"]
+      },
+      "pickups_comerciales": {
+        "count": 12,
+        "models": ["K2700 (Kia)", "Frontier (Nissan)", "Strada (FIAT)", "Toro (FIAT)", "Fiorino (FIAT)", "Montana (Chevrolet)", "S10 (Chevrolet)", "Silverado (Chevrolet)", "BT50 (Mazda)", "Rampage (RAM)", "Dakota (RAM)", "1500 (RAM)"]
+      },
+      "electricos_hibridos": {
+        "count": 6,
+        "models": ["EV5 (Kia)", "EV9 (Kia)", "EX30 (Volvo)", "EX40 (Volvo)", "EC40 (Volvo)", "EX90 (Volvo)"]
+      }
+    }
+  },
+  "products": [
+    {
+      "slug": "vehiculos-0km",
+      "name": "Vehículos 0km",
+      "type": "physical",
+      "description": "Venta de vehículos nuevos de +12 marcas internacionales: sedanes, SUVs, pickups, comerciales y motos. Desde entry-level hasta premium.",
+      "price": "Varía por marca y modelo",
+      "url": "https://www.garden.com.py",
+      "category": "Venta de vehículos"
+    },
+    {
+      "slug": "carden-usados",
+      "name": "Carden — Vehículos Usados",
+      "type": "physical",
+      "description": "Plataforma dedicada de venta de vehículos usados certificados. Compra, venta y consignación con garantía Garden.",
+      "price": "Varía por unidad",
+      "url": "https://www.garden.com.py",
+      "category": "Venta de vehículos"
+    },
+    {
+      "slug": "postventa",
+      "name": "Servicio Postventa",
+      "type": "service",
+      "description": "Red de talleres autorizados incluyendo el mega taller de Mariano Roque Alonso (el más grande de Paraguay y la región). Mantenimiento, reparación, servicio a domicilio.",
+      "price": "Varía por servicio",
+      "url": "https://www.garden.com.py",
+      "category": "Servicios"
+    },
+    {
+      "slug": "repuestos",
+      "name": "Repuestos y Accesorios",
+      "type": "physical",
+      "description": "Venta de repuestos originales y accesorios para todas las marcas representadas. Disponible en sucursales y venta digital.",
+      "url": "https://www.garden.com.py",
+      "category": "Repuestos"
+    },
+    {
+      "slug": "seguros",
+      "name": "Seguros Vehiculares",
+      "type": "service",
+      "description": "Productos de seguro vehicular integrados al proceso de compra. Cobertura completa y terceros.",
+      "url": "https://www.garden.com.py",
+      "category": "Financiamiento"
+    },
+    {
+      "slug": "financiamiento",
+      "name": "Financiamiento y Planes de Pago",
+      "type": "service",
+      "description": "Planes de financiamiento flexibles adaptados a la situación del cliente. Cuotas, leasing y renting.",
+      "url": "https://www.garden.com.py",
+      "category": "Financiamiento"
+    },
+    {
+      "slug": "garden-clear-service",
+      "name": "Garden Clear Service",
+      "type": "digital",
+      "description": "Plataforma digital de seguimiento en tiempo real del estado del vehículo en taller. Aprobación de presupuestos desde el celular.",
+      "url": "https://www.garden.com.py",
+      "category": "Innovación digital"
+    }
+  ],
+  "target_audience": {
+    "demographics": {
+      "age_range": "25-60",
+      "gender": "Mixto, ligera inclinación masculina en compra directa",
+      "location": "Paraguay — foco en Asunción, Ciudad del Este y ciudades intermedias",
+      "income": "Medio a medio-alto (con planes de financiamiento para ampliar acceso)",
+      "occupation": "Profesionales, empresarios, familias, flotas corporativas"
+    },
+    "psychographics": {
+      "values": ["Confianza", "Accesibilidad", "Calidad de servicio", "Variedad de opciones"],
+      "pain_points": [
+        "Acceso limitado a financiamiento vehicular",
+        "Incertidumbre sobre servicio postventa",
+        "Falta de variedad de marcas en un solo lugar",
+        "Desconfianza en compra de usados"
+      ],
+      "motivations": [
+        "Tener vehículo propio con respaldo",
+        "Servicio postventa confiable y accesible",
+        "Financiamiento flexible",
+        "Variedad de marcas y modelos en un solo grupo"
+      ]
+    }
+  },
+  "brand_values": [
+    {
+      "value": "Flexibilidad",
+      "description": "Adaptación a las necesidades del cliente en financiamiento, servicio y opciones de movilidad"
+    },
+    {
+      "value": "Compromiso",
+      "description": "Relaciones duraderas con clientes, más allá de la transacción de venta"
+    },
+    {
+      "value": "Seriedad",
+      "description": "40+ años de trayectoria respaldando cada promesa con hechos"
+    },
+    {
+      "value": "Simplicidad",
+      "description": "Procesos claros y accesibles para facilitar la experiencia del cliente"
+    },
+    {
+      "value": "Innovación",
+      "description": "Pioneros en venta online, servicio a domicilio, Garden Clear Service y plataformas digitales"
+    }
+  ],
+  "visual_identity": {
+    "color_system": {
+      "primary_colors": [
+        { "name": "Garden Red", "hex": "#DA291C", "pantone": "PANTONE 485 C", "rgb": "218, 41, 28", "cmyk": "0, 100, 100, 0", "usage": "Color principal de marca — logo, acentos, fondos destacados" },
+        { "name": "Black", "hex": "#000000", "pantone": "PANTONE Process Black", "rgb": "0, 0, 0", "cmyk": "0, 0, 0, 100", "usage": "Texto principal, fondos dark, contraste" }
+      ],
+      "secondary_colors": [
+        { "name": "White", "hex": "#FFFFFF", "rgb": "255, 255, 255", "usage": "Fondos claros, texto sobre rojo/negro" },
+        { "name": "Cool Gray", "hex": "#A7A8AA", "pantone": "PANTONE Cool Gray 7 C", "rgb": "167, 168, 170", "usage": "Textos secundarios, elementos de soporte" },
+        { "name": "Coral/Salmon", "hex": "#E8735A", "rgb": "232, 115, 90", "usage": "Acento complementario, gradientes, variaciones cálidas" }
+      ]
+    },
+    "typography": {
+      "primary_font": "Libre Franklin",
+      "font_source": "Google Fonts",
+      "weights": {
+        "headlines": "700 (Bold)",
+        "body": "400 (Regular)",
+        "captions": "400 Italic"
+      },
+      "character_set": "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789!\"·$%&/()=?¿"
+    },
+    "logo": {
+      "description": "Cuadrado rojo con esquinas levemente redondeadas. Texto 'Garden' en blanco, tipografía sans-serif, centrado verticalmente.",
+      "variants": [
+        "Fondo rojo + texto blanco (principal)",
+        "Fondo blanco + logo rojo + texto negro",
+        "Fondo negro + logo rojo + texto blanco",
+        "Versión solo grafismo (cuadrado rojo sin texto)"
+      ],
+      "safety_area": "El área de protección mínima alrededor del logo es definida por la altura de la letra 'G' del logotipo",
+      "grafismo": "El cuadrado rojo se puede usar como elemento gráfico independiente (grafismo). Se usa como marco o contenedor de imágenes. Siempre mantiene proporciones cuadradas. Puede aplicarse invertido (marco rojo sobre fondo) o como contenedor de texto/imágenes."
+    }
+  },
+  "photography": {
+    "style": {
+      "overall": "Profesional, aspiracional pero accesible. Foco en personas reales interactuando con vehículos.",
+      "lighting": "Natural o estudio, limpia, sin filtros excesivos",
+      "color_grading": "Neutro a ligeramente cálido, consistente con la paleta rojo/negro/blanco",
+      "casting_attitude": "Personas reales, diversas, paraguayas. Familias, profesionales, jóvenes adultos."
+    },
+    "technical": {
+      "aspect_ratios": ["16:9 (hero/web)", "1:1 (social)", "4:5 (stories/feed)", "9:16 (stories/reels)"],
+      "resolution": "Alta resolución, mínimo 2000px lado mayor"
+    }
+  },
+  "tone_of_voice": {
+    "personality_traits": ["Confiable", "Profesional", "Accesible", "Directo", "Innovador"],
+    "communication_style": "Español neutro latinoamericano con modismos paraguayos cuando corresponda. Profesional pero cercano.",
+    "language_register": "Formal-profesional con toques de cercanía",
+    "emotional_temperature": "Cálido y seguro — transmitir confianza y accesibilidad sin ser informal",
+    "do": [
+      "Hablar de movilidad como acceso y libertad",
+      "Enfatizar trayectoria y confianza (40+ años)",
+      "Destacar variedad de opciones y flexibilidad",
+      "Usar datos concretos (marcas, años, % mercado)",
+      "Comunicar innovación digital como diferencial"
+    ],
+    "dont": [
+      "Usar jerga técnica automotriz sin explicar",
+      "Sonar elitista o exclusivo",
+      "Prometer sin respaldo",
+      "Descuidar el servicio postventa en la comunicación",
+      "Copiar tono de marcas premium europeas — Garden es accesible"
+    ]
+  },
+  "campaign_guidelines": {
+    "model_casting": {
+      "demographics": "Paraguayos reales, 25-55 años, aspecto profesional pero accesible",
+      "attitude": "Seguridad, satisfacción, libertad de movilidad",
+      "diversity": "Representar diversidad paraguaya en género, edad y contexto socioeconómico"
+    },
+    "preferred_locations": [
+      "Showrooms Garden",
+      "Calles y rutas de Paraguay",
+      "Contextos urbanos (Asunción, Ciudad del Este)",
+      "Talleres Garden (especialmente mega taller MRA)",
+      "Entornos familiares/cotidianos"
+    ],
+    "product_presentation": {
+      "style": "Vehículos en contexto de uso real, no solo estudio. Mostrar la experiencia completa: desde la compra hasta el servicio.",
+      "branding": "Logo Garden visible pero no invasivo. El grafismo (cuadrado rojo) como marco visual recurrente.",
+      "key_message": "Acceso a la movilidad deseada — opciones, confianza, respaldo"
+    },
+    "motion_rules": {
+      "pacing": "Medio — ni frenético ni lento. Transmitir solidez con dinamismo",
+      "transitions": "Cortes limpios, uso del grafismo como transición"
+    }
+  },
+  "social_media": {
+    "facebook": "https://www.facebook.com/GardenGrupo",
+    "instagram": "https://www.instagram.com/grupogarden_oficial",
+    "linkedin": "https://www.linkedin.com/company/grupogarden",
+    "youtube": "https://www.youtube.com/channel/UCzcSVnzyCGa3s2bjOrzQNFg",
+    "whatsapp": "+595 9 92135005"
+  },
+  "contact": {
+    "whatsapp": "+595 9 92135005",
+    "website": "https://www.garden.com.py",
+    "locations": [
+      "Ciudad del Este (sede original)",
+      "Asunción (centro de operaciones principal)",
+      "Mariano Roque Alonso (mega taller postventa)"
+    ]
+  }
+}
